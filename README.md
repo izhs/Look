@@ -5,6 +5,42 @@
 [![License](https://img.shields.io/cocoapods/l/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
+## Change
+
+It is very convenient to define object's parameters using closures.
+```ruby
+let change: (UIView) -> Void = { (view: UIView) in
+    view.alpha = 0.5
+    view.backgroundColor = UIColor.white
+}
+```
+And apply them to an object when necessary.
+```ruby
+let view = UIView()
+change(view)
+```
+`Look` introduces a typealias which describes such closures.
+```ruby
+Change<T> = (T) -> Void
+```
+Also, it introduces a generic static function that helps to construct `Changes`.
+```ruby
+let change = UIView.change { (view) in
+    view.alpha = 0.5
+    view.backgroundColor = UIColor.white
+}
+```
+Combine `Changes` using `+` operator.
+```ruby
+let changeAlpha = UIView.change { (view) in
+    view.alpha = 0.5
+}
+let changeColor = UIView.change { (view) in
+    view.backgroundColor = UIColor.white
+}
+let change = changeAlpha + changeColor
+```
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.

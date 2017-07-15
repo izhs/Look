@@ -24,7 +24,7 @@ public typealias Change<T> = (T) -> Void
 
 // MARK: -
 
-extension Alterable {
+public extension Alterable {
     
     static func change(closure: @escaping Change<Self>) -> Change<Self> {
         return closure

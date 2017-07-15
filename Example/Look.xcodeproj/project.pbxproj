@@ -12,6 +12,7 @@
 		607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACD51AFB9204008FA782 /* AppDelegate.swift */; };
 		607FACEC1AFB9204008FA782 /* Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 607FACEB1AFB9204008FA782 /* Tests.swift */; };
 		7A1F48D01F1A263100A7DE8B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7A1F48CF1F1A263100A7DE8B /* Default-568h@2x.png */; };
+		7A1F48D21F1A28AD00A7DE8B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1F48D11F1A28AD00A7DE8B /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		607FACEA1AFB9204008FA782 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		607FACEB1AFB9204008FA782 /* Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests.swift; sourceTree = "<group>"; };
 		7A1F48CF1F1A263100A7DE8B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		7A1F48D11F1A28AD00A7DE8B /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		BB9C6938271FA72C285BF59C /* Look.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Look.podspec; path = ../Look.podspec; sourceTree = "<group>"; };
 		D9360806D77762CC31036E71 /* Pods-Look_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Look_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-Look_Example/Pods-Look_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
+				7A1F48D11F1A28AD00A7DE8B /* ViewController.swift */,
 				607FACD31AFB9204008FA782 /* Supporting Files */,
 			);
 			name = "Example for Look";
@@ -351,6 +354,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A1F48D21F1A28AD00A7DE8B /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
