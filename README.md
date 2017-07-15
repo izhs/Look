@@ -7,6 +7,7 @@
 * [Defining parameters with closures](#defining-parameters-with-closures)
    * [Changes](#changes)
    * [Combine changes](#combine-changes)
+   * [Applying changes using `Look`](#applying-changes-using-Look)
 * [Style](#style)
 
 ## Look
@@ -65,6 +66,8 @@ let changeColor = UIView.change { (view) in
 }
 let change = changeAlpha + changeColor
 ```
+
+### Applying changes using `Look`
 
 ## Style
 
