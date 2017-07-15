@@ -7,7 +7,7 @@
 * [Defining parameters with closures](#defining-parameters-with-closures)
    * [Changes](#changes)
    * [Combine changes](#combine-changes)
-   * [Applying changes using `Look`](#applying-changes-using-Look)
+   * [Apply changes](#apply-changes)
 * [Style](#style)
 
 ## Look
@@ -67,7 +67,24 @@ let changeColor = UIView.change { (view) in
 let change = changeAlpha + changeColor
 ```
 
-### Applying changes using `Look`
+### Apply changes
+
+There are some ways to apply changes to an object in addition to a simple way
+```ruby
+changeAlpha(view)
+changeColor(view)
+```
+
+Using `apply` function
+```ruby
+view.look.apply(changeAlpha).apply(changeColor)
+```
+
+Using `+` operator
+```ruby
+view.look + changeAlpha + changeColor
+```
+
 
 ## Style
 
