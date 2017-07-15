@@ -20,6 +20,7 @@ final class ViewController: UIViewController {
             view.backgroundColor = UIColor.white
         }
         let change = changeAlpha + changeColor
+        let look: Look<UIView> = view.look
 //        let change2 = UIView.change { (view) in
 //            view.alpha = 0.5
 //            view.backgroundColor = UIColor.orange

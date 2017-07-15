@@ -5,6 +5,18 @@
 [![License](https://img.shields.io/cocoapods/l/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
+[Look](#Look)
+[Change](#Change)
+
+## Look
+
+`Look` is a generic structure that can be accessed from each object
+```ruby
+let view = UIView()
+let look: Look<UIView> = view.look
+```
+It can be used to apply [Changes](#Change) and change `Styles` of an object.
+
 ## Change
 
 It is very convenient to define object's parameters using closures.
@@ -19,11 +31,11 @@ And apply them to an object when necessary.
 let view = UIView()
 change(view)
 ```
-[Look](https://github.com/izhs/Look) introduces a typealias which describes such closures.
+Framework introduces a typealias which describes such closures.
 ```ruby
 Change<T> = (T) -> Void
 ```
-Also, [Look](https://github.com/izhs/Look) introduces a generic static function that helps to construct `Changes`.
+Also, it introduces a generic static function that helps to construct `Changes`.
 ```ruby
 let change = UIView.change { (view) in
     view.alpha = 0.5
