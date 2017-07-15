@@ -4,11 +4,12 @@
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
 - [Look](#look)
-- [Change](#change)
+- [Change](#changes)
+-- [Change](#change)
 
 ## Look
 
-`Look` is a generic structure with a reference to an object
+[Look](#look) is a generic structure with a reference to an object
 ```ruby
 struct Look<T> {
     let object: T
@@ -19,9 +20,9 @@ that can be accessed from any object.
 let view = UIView()
 let look: Look<UIView> = view.look
 ```
-`Look` should be used to apply [Changes](#change) and change [Styles](#style) of an object.
+[Look](#look) should be used to apply [Changes](#changes) and change [Styles](#style) of an object.
 
-## Change
+## Changes
 
 It is very convenient to define objects' parameters using closures.
 ```ruby
@@ -35,11 +36,14 @@ And apply them to an object when necessary.
 let view = UIView()
 change(view)
 ```
+
+### Change
+
 Framework introduces a typealias which describes such closures
 ```ruby
 Change<T> = (T) -> Void
 ```
-and introduces a generic static function that helps to construct [Changes](#change).
+and a generic static function that helps to construct [Changes](#change).
 ```ruby
 let change = UIView.change { (view) in
     view.alpha = 0.5
