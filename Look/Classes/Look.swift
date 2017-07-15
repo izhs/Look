@@ -1,28 +1,20 @@
 import Foundation
 
-// MARK: - Look
-
 public struct Look<T> {
     
     let object: T
 }
 
-// MARK: - Alterable
-
 public protocol Alterable: class {
     
     associatedtype AlterType
     
-    var look: Look<AlterType> { get set }
+    var look: Look<AlterType> { get }
 }
 
 extension NSObject: Alterable {}
 
-// MARK: - Change
-
 public typealias Change<T> = (T) -> Void
-
-// MARK: -
 
 public extension Alterable {
     
@@ -42,7 +34,7 @@ public extension Look where T: Alterable {
     }
     
     @discardableResult
-    static func +(look: Look, change: @escaping Change<T>) -> Look<T> {
+    static func +(look: Look<T>, change: @escaping Change<T>) -> Look<T> {
         look.apply(change)
         return look
     }
@@ -55,18 +47,14 @@ public extension Look where T: Alterable {
         return self
     }
     
-    subscript(styles: AnyHashable...) -> Change<T>? {
-        get {
-            guard let style = styles.first, styles.count == 1 else { return nil }
-            return object.styles[style]
+    @discardableResult
+    func prepare(styles: AnyHashable..., change: @escaping Change<T>) -> Look<T> {
+        for style in styles {
+            object.styles[style] = change
+            guard style == object.style else { continue }
+            object.style = style
         }
-        set(value) {
-            for style in styles {
-                object.styles[style] = value
-                guard style == object.style else { continue }
-                object.style = style
-            }
-        }
+        return self
     }
     
     var style: AnyHashable? {
@@ -92,13 +80,10 @@ public extension Alterable {
         get {
             return Look(object: self)
         }
-        set(value) {
-            //
-        }
     }
 }
 
-struct AlterableRuntimeKeys {
+struct LookFrameworkRuntimeKeys {
     
     static var style = "\(#file)+\(#line)"
     static var styles = "\(#file)+\(#line)"
@@ -108,11 +93,11 @@ extension Alterable {
     
     var style: AnyHashable? {
         get {
-            return objc_getAssociatedObject(self, &AlterableRuntimeKeys.style) as? AnyHashable
+            return objc_getAssociatedObject(self, &LookFrameworkRuntimeKeys.style) as? AnyHashable
         }
         set(value) {
             let policy = objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC
-            objc_setAssociatedObject(self, &AlterableRuntimeKeys.style, value, policy)
+            objc_setAssociatedObject(self, &LookFrameworkRuntimeKeys.style, value, policy)
             guard let value = value else { return }
             guard let change = styles[value] else { return }
             look.apply(change)
@@ -121,11 +106,11 @@ extension Alterable {
     
     var styles: [AnyHashable:Change<Self>] {
         get {
-            return objc_getAssociatedObject(self, &AlterableRuntimeKeys.styles) as? [AnyHashable:Change<Self>] ?? [:]
+            return objc_getAssociatedObject(self, &LookFrameworkRuntimeKeys.styles) as? [AnyHashable:Change<Self>] ?? [:]
         }
         set(value) {
             let policy = objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC
-            objc_setAssociatedObject(self, &AlterableRuntimeKeys.styles, value, policy)
+            objc_setAssociatedObject(self, &LookFrameworkRuntimeKeys.styles, value, policy)
         }
     }
 }
