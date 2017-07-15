@@ -96,7 +96,7 @@ view.look + changeAlpha + changeColor
 it, simply add the following line to your Podfile:
 
 ```ruby
-pod 'Look', '0.1.0'
+pod 'Look', '0.1.1'
 ```
 
 ## Author
