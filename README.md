@@ -18,12 +18,12 @@ struct Look<T> {
     let object: T
 }
 ```
-that can be accessed from any object.
+that can be accessed from any object
 ```ruby
 let view = UIView()
 let look: Look<UIView> = view.look
 ```
-[Look](#look) should be used to apply [changes](#changes) and change [styles](#style) of an object.
+[Look](#look) should be used to apply [changes](#changes) and [styles](#style) of an object.
 
 ## Defining parameters with closures
 
@@ -34,7 +34,7 @@ let change: (UIView) -> Void = { (view: UIView) in
     view.backgroundColor = UIColor.white
 }
 ```
-and apply them to an object when necessary.
+and apply them to an object when necessary
 ```ruby
 let view = UIView()
 change(view)
@@ -46,7 +46,7 @@ Framework introduces a typealias which describes such closures
 ```ruby
 Change<T> = (T) -> Void
 ```
-and a generic static function that helps to construct [changes](#changes).
+and a generic static function that helps to construct [changes](#changes)
 ```ruby
 let change = UIView.change { (view) in
     view.alpha = 0.5
