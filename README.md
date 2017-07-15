@@ -1,5 +1,3 @@
-# Look
-
 [![CI Status](http://img.shields.io/travis/izhs/Look.svg?style=flat)](https://travis-ci.org/izhs/Look)
 [![Version](https://img.shields.io/cocoapods/v/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![License](https://img.shields.io/cocoapods/l/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
@@ -10,7 +8,13 @@
 
 ## Look
 
-`Look` is a generic structure that can be accessed from each object
+`Look` is a generic structure with a reference to an object
+```ruby
+struct Look<T> {
+    let object: T
+}
+```
+that can be accessed from any object
 ```ruby
 let view = UIView()
 let look: Look<UIView> = view.look
