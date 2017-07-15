@@ -56,15 +56,15 @@ let change = UIView.change { (view) in
 
 ### Combine changes
 
-Combine [changes](#changes) using `+` operator.
+[Changes](#changes) can be combined using `+` operator
 ```ruby
 let changeAlpha = UIView.change { (view) in
     view.alpha = 0.5
 }
-let changeColor = UIView.change { (view) in
-    view.backgroundColor = UIColor.white
+let changeText = UILabel.change { (view) in
+    view.text = "text"
 }
-let change = changeAlpha + changeColor
+let change: Change<UILabel> = changeAlpha + changeText
 ```
 
 ### Apply changes
