@@ -22,7 +22,7 @@ that can be accessed from any object.
 let view = UIView()
 let look: Look<UIView> = view.look
 ```
-[Look](#look) should be used to apply [Changes](#changes) and change [Styles](#style) of an object.
+[Look](#look) should be used to apply [changes](#changes) and change [styles](#style) of an object.
 
 ## Defining parameters with closures
 
@@ -45,7 +45,7 @@ Framework introduces a typealias which describes such closures
 ```ruby
 Change<T> = (T) -> Void
 ```
-and a generic static function that helps to construct [Changes](#changes).
+and a generic static function that helps to construct [changes](#changes).
 ```ruby
 let change = UIView.change { (view) in
     view.alpha = 0.5
@@ -55,7 +55,7 @@ let change = UIView.change { (view) in
 
 ### Combine changes
 
-Combine [Changes](#changes) using `+` operator.
+Combine [changes](#changes) using `+` operator.
 ```ruby
 let changeAlpha = UIView.change { (view) in
     view.alpha = 0.5
