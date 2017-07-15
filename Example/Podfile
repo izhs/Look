@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Look_Example' do
+  pod 'Look', :path => '../'
+
+  target 'Look_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end

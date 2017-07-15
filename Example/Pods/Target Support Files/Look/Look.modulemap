@@ -1,0 +1,6 @@
+framework module Look {
+  umbrella header "Look-umbrella.h"
+
+  export *
+  module * { export * }
+}

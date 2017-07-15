@@ -1,0 +1,16 @@
+PODS:
+  - Look (0.1.0)
+
+DEPENDENCIES:
+  - Look (from `../`)
+
+EXTERNAL SOURCES:
+  Look:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Look: 0c966036c9d72e8ac9573a9ee67e2f558c79c1eb
+
+PODFILE CHECKSUM: 8d21b04d5e48704525a43092ddecf91326b1bb8a
+
+COCOAPODS: 1.2.1
