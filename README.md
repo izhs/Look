@@ -3,10 +3,10 @@
 [![License](https://img.shields.io/cocoapods/l/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
-1. [Look](#look)
-2. [Changes](#changes)
+* [Look](#look)
+* [Defining parameters with closures](#defining-parameters-with-closures)
    * [Change](#change)
-3. [Style](#style)
+* [Style](#style)
 
 ## Look
 
@@ -23,7 +23,7 @@ let look: Look<UIView> = view.look
 ```
 [Look](#look) should be used to apply [Changes](#changes) and change [Styles](#style) of an object.
 
-## Changes
+## Defining parameters with closures
 
 It is very convenient to define objects' parameters using closures.
 ```ruby
@@ -44,7 +44,7 @@ Framework introduces a typealias which describes such closures
 ```ruby
 Change<T> = (T) -> Void
 ```
-and a generic static function that helps to construct [Changes](#change).
+and a generic static function that helps to construct [Changes](#changes).
 ```ruby
 let change = UIView.change { (view) in
     view.alpha = 0.5
