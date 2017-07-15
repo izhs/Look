@@ -3,9 +3,10 @@
 [![License](https://img.shields.io/cocoapods/l/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
-- [Look](#look)
-- [Change](#changes)
--- [Change](#change)
+1. [Look](#look)
+2. [Changes](#changes)
+   * [Change](#change)
+3. [Style](#style)
 
 ## Look
 
