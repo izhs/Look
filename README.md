@@ -5,8 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
-[Look](#Look)
-[Change](#Change)
+[Look](#look)
+[Change](#change)
 
 ## Look
 
@@ -15,7 +15,7 @@
 let view = UIView()
 let look: Look<UIView> = view.look
 ```
-It can be used to apply [Changes](#Change) and change `Styles` of an object.
+It can be used to apply [Changes](#change) and change `Styles` of an object.
 
 ## Change
 
