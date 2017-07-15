@@ -5,8 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
-[Look](#look)
-[Change](#change)
+- [Look](#look)
+- [Change](#change)
 
 ## Look
 
