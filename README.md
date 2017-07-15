@@ -3,63 +3,90 @@
 [![License](https://img.shields.io/cocoapods/l/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
-- [Look](#look)
-- [Change](#change)
+* [Look](#look)
+* [Defining parameters with closures](#defining-parameters-with-closures)
+   * [Changes](#changes)
+   * [Combine changes](#combine-changes)
+   * [Apply changes](#apply-changes)
+* [Style](#style)
 
 ## Look
 
-`Look` is a generic structure with a reference to an object
+[Look](#look) is a generic structure with a reference to an object
 ```ruby
 struct Look<T> {
     let object: T
 }
 ```
-that can be accessed from any object
+that can be accessed from any object.
 ```ruby
 let view = UIView()
 let look: Look<UIView> = view.look
 ```
-It can be used to apply [Changes](#change) and change `Styles` of an object.
+[Look](#look) should be used to apply [changes](#changes) and change [styles](#style) of an object.
 
-## Change
+## Defining parameters with closures
 
-It is very convenient to define object's parameters using closures.
+It is very convenient to define objects' parameters using closures
 ```ruby
 let change: (UIView) -> Void = { (view: UIView) in
     view.alpha = 0.5
     view.backgroundColor = UIColor.white
 }
 ```
-And apply them to an object when necessary.
+and apply them to an object when necessary.
 ```ruby
 let view = UIView()
 change(view)
 ```
-Framework introduces a typealias which describes such closures.
+
+### Changes
+
+Framework introduces a typealias which describes such closures
 ```ruby
 Change<T> = (T) -> Void
 ```
-Also, it introduces a generic static function that helps to construct `Changes`.
+and a generic static function that helps to construct [changes](#changes).
 ```ruby
 let change = UIView.change { (view) in
     view.alpha = 0.5
     view.backgroundColor = UIColor.white
 }
 ```
-Combine `Changes` using `+` operator.
+
+### Combine changes
+
+[Changes](#changes) can be combined using `+` operator
 ```ruby
 let changeAlpha = UIView.change { (view) in
     view.alpha = 0.5
 }
-let changeColor = UIView.change { (view) in
-    view.backgroundColor = UIColor.white
+let changeText = UILabel.change { (view) in
+    view.text = "text"
 }
-let change = changeAlpha + changeColor
+let change: Change<UILabel> = changeAlpha + changeText
 ```
 
-## Example
+### Apply changes
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+There are some ways to apply changes to an object in addition to a simple way
+```ruby
+changeAlpha(view)
+changeColor(view)
+```
+
+Using `apply` function
+```ruby
+view.look.apply(changeAlpha).apply(changeColor)
+```
+
+Using `+` operator
+```ruby
+view.look + changeAlpha + changeColor
+```
+
+
+## Style
 
 ## Requirements
 
