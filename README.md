@@ -26,4 +26,4 @@ izhs@protonmail.com
 
 ## License
 
-Look is available under the MIT license. See the LICENSE file for more info.
+`Look` is available under the MIT license. See the LICENSE file for more info.
