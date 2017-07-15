@@ -19,11 +19,11 @@ And apply them to an object when necessary.
 let view = UIView()
 change(view)
 ```
-`Look` introduces a typealias which describes such closures.
+[Look](https://github.com/izhs/Look) introduces a typealias which describes such closures.
 ```ruby
 Change<T> = (T) -> Void
 ```
-Also, it introduces a generic static function that helps to construct `Changes`.
+Also, [Look](https://github.com/izhs/Look) introduces a generic static function that helps to construct `Changes`.
 ```ruby
 let change = UIView.change { (view) in
     view.alpha = 0.5
