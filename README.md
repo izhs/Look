@@ -5,7 +5,8 @@
 
 * [Look](#look)
 * [Defining parameters with closures](#defining-parameters-with-closures)
-   * [Change](#change)
+   * [Changes](#changes)
+   * [Combine changes](#combine-changes)
 * [Style](#style)
 
 ## Look
@@ -25,20 +26,20 @@ let look: Look<UIView> = view.look
 
 ## Defining parameters with closures
 
-It is very convenient to define objects' parameters using closures.
+It is very convenient to define objects' parameters using closures
 ```ruby
 let change: (UIView) -> Void = { (view: UIView) in
     view.alpha = 0.5
     view.backgroundColor = UIColor.white
 }
 ```
-And apply them to an object when necessary.
+and apply them to an object when necessary.
 ```ruby
 let view = UIView()
 change(view)
 ```
 
-### Change
+### Changes
 
 Framework introduces a typealias which describes such closures
 ```ruby
@@ -51,7 +52,10 @@ let change = UIView.change { (view) in
     view.backgroundColor = UIColor.white
 }
 ```
-Combine [Changes](#change) using `+` operator.
+
+### Combine changes
+
+Combine [Changes](#changes) using `+` operator.
 ```ruby
 let changeAlpha = UIView.change { (view) in
     view.alpha = 0.5
