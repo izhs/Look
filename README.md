@@ -14,8 +14,9 @@ and apply them to an object when necessary
 let view = UIView()
 change(view)
 ```
-> Keep reading if you also find it convenient!
----
+
+# Table of contents
+
 * [Look](#look)
 * [Changes](#changes)
    * [Combine changes](#combine-changes)
