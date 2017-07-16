@@ -8,7 +8,7 @@
    * [Changes](#changes)
    * [Combine changes](#combine-changes)
    * [Apply changes](#apply-changes)
-* [State](#state)
+* [States](#states)
    * [Predefined changes](#predefined-changes)
 
 ## Look
@@ -24,7 +24,7 @@ that can be accessed from any object
 let view = UIView()
 let look: Look<UIView> = view.look
 ```
-[Look](#look) should be used to apply [changes](#changes) and [states](#state) of an object.
+[Look](#look) should be used to apply [changes](#changes) and [states](#states) of an object.
 
 ## Customizing objects with closures
 
@@ -86,9 +86,9 @@ Using [look](#look) and `+` operator
 view.look + changeAlpha + changeColor
 ```
 
-## State
+## States
 
-[State](#state) is a new parameter of an object that is introduced by `Look` framework and can be accessed only through [look](#look) structure
+[State](#states) is a new parameter of an object that is introduced by `Look` framework and can be accessed only through [look](#look) structure
 ```ruby
 extension Look {
     var state: AnyHashable? { get set }
@@ -113,7 +113,7 @@ These changes can be predefined with some names
 view.look.prepare(state: "disabled", change: changeDisabled)
 view.look.prepare(state: "enabled", change: changeEnabled)
 ```
-and later applied by changing object's [state](#state)
+and later applied by changing object's [state](#states)
 ```ruby
 view.look.state = "disabled"
 ```
