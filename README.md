@@ -46,7 +46,7 @@ change(view)
 
 ### Changes
 
-Framework introduces a generic typealias which describes such closures
+`Look` framework introduces a generic typealias which describes such closures
 ```ruby
 Change<T> = (T) -> Void
 ```
