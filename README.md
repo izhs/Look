@@ -14,7 +14,7 @@ and apply them to an object when necessary
 let view = UIView()
 change(view)
 ```
-Keep reading if you also find it convenient!
+> Keep reading if you also find it convenient!
 ---
 * [Look](#look)
 * [Changes](#changes)
