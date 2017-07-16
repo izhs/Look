@@ -4,7 +4,7 @@
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
 * [Look](#look)
-* [Defining parameters with closures](#defining-parameters-with-closures)
+* [Customizing objects with closures](#customizing-objects-with-closures)
    * [Changes](#changes)
    * [Combine changes](#combine-changes)
    * [Apply changes](#apply-changes)
@@ -25,7 +25,7 @@ let look: Look<UIView> = view.look
 ```
 [Look](#look) should be used to apply [changes](#changes) and [styles](#style) of an object.
 
-## Defining parameters with closures
+## Customizing objects with closures
 
 It is very convenient to define objects' parameters using closures
 ```ruby
@@ -58,10 +58,10 @@ let change = UIView.change { (view) in
 
 [Changes](#changes) can be combined using `+` operator
 ```ruby
-let changeAlpha = UIView.change { (view) in
+let changeAlpha: Change<UIView> = UIView.change { (view) in
     view.alpha = 0.5
 }
-let changeText = UILabel.change { (view) in
+let changeText: Change<UILabel> = UILabel.change { (view) in
     view.text = "text"
 }
 let change: Change<UILabel> = changeAlpha + changeText
@@ -75,12 +75,12 @@ changeAlpha(view)
 changeColor(view)
 ```
 
-Using `apply` function
+Using [look](#look) and `apply` function 
 ```ruby
 view.look.apply(changeAlpha).apply(changeColor)
 ```
 
-Using `+` operator
+Using [look](#look) and `+` operator
 ```ruby
 view.look + changeAlpha + changeColor
 ```
