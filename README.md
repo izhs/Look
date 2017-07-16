@@ -17,6 +17,7 @@ change(view)
 
 # Table of contents
 
+* [Installation](#installation)
 * [Look](#look)
 * [Changes](#changes)
    * [Combine changes](#combine-changes)
@@ -24,9 +25,17 @@ change(view)
 * [States](#states)
    * [Predefined changes](#predefined-changes)
    * [Delayed preparation](#delayed-preparation)
-* [Installation](#installation)
 * [Author](#author)
 * [License](#license)
+
+## Installation
+
+`Look` is available through [CocoaPods](http://cocoapods.org). To install
+it, simply add the following line to your Podfile:
+
+```ruby
+pod 'Look', '0.1.2'
+```
 
 ## Look
 
@@ -129,15 +138,6 @@ view.look.state = "some state"
 view.look.prepare(state: "some state", change: someChange)
 ```
 In such cases a [change](#changes) would be applied to an object during preparation and there is no need update object's state.
-
-## Installation
-
-`Look` is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod 'Look', '0.1.2'
-```
 
 ## Author
 
