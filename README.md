@@ -97,6 +97,26 @@ extension Look {
 Whenever an object is changed you can also change its state in order to apply predefined [changes](#changes).
 
 ### Predefined changes
+Let's imagine that we have different [changes](#changes) that should be applied to a view
+```ruby
+let changeDisabled = UIView.change { (view) in
+    view.alpha = 0.5
+    view.backgroundColor = UIColor.gray
+}
+let changeEnabled = UIView.change { (view) in
+    view.alpha = 1.0
+    view.backgroundColor = UIColor.white
+}
+```
+These changes can be predefined with some names
+```ruby
+view.look.prepare(state: "disabled", change: changeDisabled)
+view.look.prepare(state: "enabled", change: changeEnabled)
+```
+and later applied by changing object's [state](#state)
+```ruby
+view.look.state = "disabled"
+```
 
 ## Requirements
 
