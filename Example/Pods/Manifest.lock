@@ -1,5 +1,5 @@
 PODS:
-  - Look (0.1.1)
+  - Look (0.1.2)
 
 DEPENDENCIES:
   - Look (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  Look: fa7d2350f13922178149557ee089f68ac8e3f6a0
+  Look: 437d29060eb3741ae9c8f00f65b19b015df9b3d3
 
 PODFILE CHECKSUM: 8d21b04d5e48704525a43092ddecf91326b1bb8a
 
