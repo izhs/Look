@@ -2,9 +2,21 @@
 [![License](https://img.shields.io/cocoapods/l/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
+It is very convenient to make objects' customizations using closures
+```ruby
+let change: (UIView) -> Void = { (view: UIView) in
+    view.alpha = 0.5
+    view.backgroundColor = UIColor.white
+}
+```
+and apply them to an object when necessary
+```ruby
+let view = UIView()
+change(view)
+```
+
 * [Look](#look)
-* [Customizing objects with closures](#customizing-objects-with-closures)
-   * [Changes](#changes)
+* [Changes](#changes)
    * [Combine changes](#combine-changes)
    * [Apply changes](#apply-changes)
 * [States](#states)
@@ -29,22 +41,7 @@ let look: Look<UIView> = view.look
 ```
 [Look](#look) should be used to apply objects' [changes](#changes) and [states](#states).
 
-## Customizing objects with closures
-
-It is very convenient to define objects' parameters using closures
-```ruby
-let change: (UIView) -> Void = { (view: UIView) in
-    view.alpha = 0.5
-    view.backgroundColor = UIColor.white
-}
-```
-and apply them to an object when necessary
-```ruby
-let view = UIView()
-change(view)
-```
-
-### Changes
+## Changes
 
 `Look` framework introduces a generic typealias which describes such closures
 ```ruby
