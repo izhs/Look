@@ -4,11 +4,13 @@
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 
 * [Look](#look)
-* [Defining parameters with closures](#defining-parameters-with-closures)
+* [Customizing objects with closures](#customizing-objects-with-closures)
    * [Changes](#changes)
    * [Combine changes](#combine-changes)
    * [Apply changes](#apply-changes)
-* [Style](#style)
+* [States](#states)
+   * [Predefined changes](#predefined-changes)
+   * [Delayed preparation](#delayed-preparation)
 
 ## Look
 
@@ -18,14 +20,14 @@ struct Look<T> {
     let object: T
 }
 ```
-that can be accessed from any object.
+that can be accessed from any object
 ```ruby
 let view = UIView()
 let look: Look<UIView> = view.look
 ```
-[Look](#look) should be used to apply [changes](#changes) and change [styles](#style) of an object.
+[Look](#look) should be used to apply objects' [changes](#changes) and [states](#states).
 
-## Defining parameters with closures
+## Customizing objects with closures
 
 It is very convenient to define objects' parameters using closures
 ```ruby
@@ -34,7 +36,7 @@ let change: (UIView) -> Void = { (view: UIView) in
     view.backgroundColor = UIColor.white
 }
 ```
-and apply them to an object when necessary.
+and apply them to an object when necessary
 ```ruby
 let view = UIView()
 change(view)
@@ -42,11 +44,11 @@ change(view)
 
 ### Changes
 
-Framework introduces a typealias which describes such closures
+Framework introduces a generic typealias which describes such closures
 ```ruby
 Change<T> = (T) -> Void
 ```
-and a generic static function that helps to construct [changes](#changes).
+and a generic static function that helps to construct [changes](#changes)
 ```ruby
 let change = UIView.change { (view) in
     view.alpha = 0.5
@@ -58,10 +60,10 @@ let change = UIView.change { (view) in
 
 [Changes](#changes) can be combined using `+` operator
 ```ruby
-let changeAlpha = UIView.change { (view) in
+let changeAlpha: Change<UIView> = UIView.change { (view) in
     view.alpha = 0.5
 }
-let changeText = UILabel.change { (view) in
+let changeText: Change<UILabel> = UILabel.change { (view) in
     view.text = "text"
 }
 let change: Change<UILabel> = changeAlpha + changeText
@@ -75,18 +77,57 @@ changeAlpha(view)
 changeColor(view)
 ```
 
-Using `apply` function
+Using [look](#look) and `apply` function 
 ```ruby
 view.look.apply(changeAlpha).apply(changeColor)
 ```
 
-Using `+` operator
+Using [look](#look) and `+` operator
 ```ruby
 view.look + changeAlpha + changeColor
 ```
 
+## States
 
-## Style
+[State](#states) is a new parameter of an object that is introduced by `Look` framework and can be accessed only through [look](#look) structure
+```ruby
+extension Look {
+    var state: AnyHashable? { get set }
+}
+```
+Whenever an object is changed you can also change its state in order to apply predefined [changes](#changes).
+
+### Predefined changes
+
+Let's imagine that we have different [changes](#changes) that should be applied to a view
+```ruby
+let changeDisabled = UIView.change { (view) in
+    view.alpha = 0.5
+    view.layer.borderColor = UIColor.black.cgColor
+}
+let changeEnabled = UIView.change { (view) in
+    view.alpha = 1.0
+    view.layer.borderColor = UIColor.red.cgColor
+}
+```
+These changes can be predefined with some names
+```ruby
+view.look.prepare(states: "disabled", "initial", change: changeDisabled)
+view.look.prepare(state: "enabled", change: changeEnabled)
+```
+and applied by changing object's [state](#states)
+```ruby
+view.look.state = "disabled"
+```
+
+### Delayed preparation
+
+Sometimes, object's [state](#states) is defined before the state's [change](#changes) is prepared
+```ruby
+view.look.state = "some state"
+view.look.prepare(state: "some state", change: someChange)
+```
+In such cases a [change](#changes) would be applied to an object during preparation and there is no need update object's state.
 
 ## Requirements
 
