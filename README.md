@@ -1,7 +1,7 @@
 [![Version](https://img.shields.io/cocoapods/v/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![License](https://img.shields.io/cocoapods/l/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
 [![Platform](https://img.shields.io/cocoapods/p/Look.svg?style=flat)](http://cocoapods.org/pods/Look)
-===
+---
 It is very convenient to make objects' customizations using closures
 ```ruby
 let change: (UIView) -> Void = { (view: UIView) in
@@ -15,7 +15,7 @@ let view = UIView()
 change(view)
 ```
 Keep reading if you also find it convenient!
-===
+---
 * [Look](#look)
 * [Changes](#changes)
    * [Combine changes](#combine-changes)
