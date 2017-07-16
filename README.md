@@ -25,7 +25,7 @@ that can be accessed from any object
 let view = UIView()
 let look: Look<UIView> = view.look
 ```
-[Look](#look) should be used to apply [changes](#changes) and [states](#states) of an object.
+[Look](#look) should be used to apply objects' [changes](#changes) and [states](#states).
 
 ## Customizing objects with closures
 
