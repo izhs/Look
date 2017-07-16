@@ -85,8 +85,15 @@ Using [look](#look) and `+` operator
 view.look + changeAlpha + changeColor
 ```
 
+## State
 
-## Style
+[Style](#style) is a new parameter of an object that is introduced by `Look` framework that can be accessed only through [look](#look) structure
+```ruby
+extension Look {
+    var style: AnyHashable? { get set }
+}
+```
+Whenever an object is changed you can also change its state in order to apply predefined [changes](#changes)
 
 ## Requirements
 
