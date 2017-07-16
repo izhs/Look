@@ -11,6 +11,9 @@
 * [States](#states)
    * [Predefined changes](#predefined-changes)
    * [Delayed preparation](#delayed-preparation)
+* [Installation](#installation)
+* [Author](#author)
+* [License](#license)
 
 ## Look
 
@@ -128,8 +131,6 @@ view.look.state = "some state"
 view.look.prepare(state: "some state", change: someChange)
 ```
 In such cases a [change](#changes) would be applied to an object during preparation and there is no need update object's state.
-
-## Requirements
 
 ## Installation
 
