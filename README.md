@@ -115,7 +115,7 @@ These changes can be predefined with some names
 view.look.prepare(states: "disabled", "initial", change: changeDisabled)
 view.look.prepare(state: "enabled", change: changeEnabled)
 ```
-and later applied by changing object's [state](#states)
+and applied by changing object's [state](#states)
 ```ruby
 view.look.state = "disabled"
 ```
