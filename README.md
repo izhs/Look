@@ -8,7 +8,8 @@
    * [Changes](#changes)
    * [Combine changes](#combine-changes)
    * [Apply changes](#apply-changes)
-* [Style](#style)
+* [State](#state)
+   * [Predefined changes](#predefined-changes)
 
 ## Look
 
@@ -23,7 +24,7 @@ that can be accessed from any object
 let view = UIView()
 let look: Look<UIView> = view.look
 ```
-[Look](#look) should be used to apply [changes](#changes) and [styles](#style) of an object.
+[Look](#look) should be used to apply [changes](#changes) and [states](#state) of an object.
 
 ## Customizing objects with closures
 
@@ -87,13 +88,15 @@ view.look + changeAlpha + changeColor
 
 ## State
 
-[Style](#style) is a new parameter of an object that is introduced by `Look` framework that can be accessed only through [look](#look) structure
+[State](#state) is a new parameter of an object that is introduced by `Look` framework and can be accessed only through [look](#look) structure
 ```ruby
 extension Look {
-    var style: AnyHashable? { get set }
+    var state: AnyHashable? { get set }
 }
 ```
-Whenever an object is changed you can also change its state in order to apply predefined [changes](#changes)
+Whenever an object is changed you can also change its state in order to apply predefined [changes](#changes).
+
+### Predefined changes
 
 ## Requirements
 
