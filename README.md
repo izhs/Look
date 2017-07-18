@@ -54,7 +54,7 @@ let look: Look<UIView> = view.look
 
 ## Changes
 
-`Look` framework introduces a generic typealias which describes such closures
+`Look` framework introduces a generic typealias which describes customization closures
 ```ruby
 Change<T> = (T) -> Void
 ```
